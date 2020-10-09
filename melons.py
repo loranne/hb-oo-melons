@@ -5,12 +5,13 @@ class AbstractMelonOrder:
     """An abstract base class that domestic & international melon orders will 
     inherit from"""
 
-    def __init__(self, species, qty):
+    def __init__(self, species, qty, country_code=None):
         """Initialize base melon order attributes"""
 
         self.species = species
         self.qty = qty
         self.shipped = False
+        self.country_code = country_code
 
     def mark_shipped(self):
         """Record the fact than an order has been shipped."""
@@ -39,12 +40,12 @@ class DomesticMelonOrder(AbstractMelonOrder):
 class InternationalMelonOrder(AbstractMelonOrder):
     """An international (non-US) melon order."""
 
-    self.order_type = "international"
-    self.tax = 0.17
+    order_type = "international"
+    tax = 0.17
 
-    def __init__(self, country_code):
+    def __init__(self, species, qty, country_code):
         """Initialize melon order attributes."""
-        super().__inti__()
+    #     super().__init__(country_code)
         self.country_code = country_code
 
     def get_country_code(self):
